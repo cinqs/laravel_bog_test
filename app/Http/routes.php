@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('index');
 });
 
 Route::get('posts/{id}', function($id){
-	return "nihao: ".$id;
+	//return "nihao: ".$id;
+	return view('post');
 });
 
 Route::get('names/{name?}', function($name = 'SONG'){
@@ -33,5 +35,9 @@ Route::get('computers/{id_com}', function($id){
 });
 
 Route::get('about', ['as' => 'about.index', function(){
-	return 'About';
+	return view('about');
+}]);
+
+Route::get('contact', ['as' => 'contact.index', function(){
+	return view('contact');
 }]);
