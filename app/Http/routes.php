@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('posts/{id}', function($id){
+	return "nihao: ".$id;
+});
+
+Route::get('names/{name?}', function($name = 'SONG'){
+	return "name: ".$name;
+});
+
+Route::get('picture/{id}', function($id){
+	return "this is confined number of pictures: ".$id;
+})->where('id', '[0-9]+');
+
+Route::pattern('id_com', '[0-9]+');
+Route::get('computers/{id_com}', function($id){
+	return "this is confined computer numbers: ".$id;
+});
+
+Route::get('about', ['as' => 'about.index', function(){
+	return 'About';
+}]);
